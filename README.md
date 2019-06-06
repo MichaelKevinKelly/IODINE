@@ -1,4 +1,5 @@
-This repo contains an implementation of the  Iterative Object Decomposition Inference Network (IODINE).  Paper: https://arxiv.org/pdf/1903.00450.pdf.
+This repo contains an implementation of the  Iterative Object Decomposition Inference Network (IODINE).  
+Paper: https://arxiv.org/pdf/1903.00450.pdf
 
 Dependencies:  
 python 3.7  
