@@ -42,7 +42,7 @@ use_feature_extractor = True
 
 ## Create training data
 train_data = torch.utils.data.DataLoader(
-	ImageDataset(datapath,max_num_samples=max_num_samples,crop_sz=crop_sz,down_sz=down_sz),
+	ClevrDataset(datapath,max_num_samples=max_num_samples,crop_sz=crop_sz,down_sz=down_sz),
 	batch_size=batch_size, shuffle=True, num_workers=num_workers, drop_last=True)
 
 ## Create refinement network, decoder, and (optionally) feature extractor
