@@ -115,7 +115,8 @@ class IODINE(torch.nn.Module):
 
 			## Potentially add additional features from pretrained model (scaled down to appropriate size)
 			if self.use_feature_extractor:
-				additional_features = self.feature_extractor(x)
+				x_resized = torch.nn.functional.interpolate(x,257) ## Upscale to desired input size for squeezenet
+				additional_features = self.feature_extractor(x_resized)
 				additional_features = additional_features.unsqueeze(dim=1)
 				additional_features = additional_features.expand((N,K,16,64,64)).contiguous()
 				
