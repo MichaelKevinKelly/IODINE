@@ -1,6 +1,7 @@
 import torchvision.models as models
 import torch
 import os
+from tensorboardX import SummaryWriter
 
 from src.iodine import IODINE
 from src.networks.refine_net import RefineNetLSTM
