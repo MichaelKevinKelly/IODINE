@@ -115,7 +115,10 @@ class IODINE(torch.nn.Module):
 
 			## Potentially add additional features from pretrained model (scaled down to appropriate size)
 			if self.use_feature_extractor:
-				additional_features = self.feature_extractor(x).unsqueeze(dim=1).expand((N,K,16,64,64)).contiguous()
+				additional_features = self.feature_extractor(x)
+				additional_features = additional_features.unsqueeze(dim=1)
+				additional_features = additional_features.expand((N,K,16,64,64)).contiguous()
+				
 				print(additional_features.shape)
 				additional_features = additional_features.view((N*K,16,64,64))
 				print(additional_features.shape)
