@@ -13,7 +13,7 @@ ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 ## Paths for saving models and loading data
 save_path = '/home/mkelly2/iodine_clean/IODINE/trained_models/'
-datapath = '/home/mkelly2/iodine/data/CLEVR_v1.0/images/'
+datapath = '/raid/mkelly2/CLEVR_v1.0/images/'
 model_name = 'iodine_clevr_wfeatures'
 save_path += model_name + '/'
 
