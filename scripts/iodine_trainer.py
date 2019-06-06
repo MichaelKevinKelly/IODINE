@@ -5,7 +5,7 @@ import os
 from src.iodine import IODINE
 from src.networks.refine_net import RefineNetLSTM
 from src.networks.sbd import SBD
-from src.datasets import *
+from src.datasets.datasets import ClevrDataset
 
 from PIL import ImageFile
 ImageFile.LOAD_TRUNCATED_IMAGES = True
