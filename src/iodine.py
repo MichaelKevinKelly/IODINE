@@ -116,17 +116,10 @@ class IODINE(torch.nn.Module):
 			## Potentially add additional features from pretrained model (scaled down to appropriate size)
 			if self.use_feature_extractor:
 				x_resized = torch.nn.functional.interpolate(x,257) ## Upscale to desired input size for squeezenet
-				additional_features = self.feature_extractor(x_resized)
-				additional_features = additional_features.unsqueeze(dim=1)
+				additional_features = self.feature_extractor(x_resized).unsqueeze(dim=1)
 				additional_features = additional_features.expand((N,K,16,64,64)).contiguous()
-				
-				print(additional_features.shape)
 				additional_features = additional_features.view((N*K,16,64,64))
-				print(additional_features.shape)
-				print(refine_inp['img'].shape)
 				refine_inp['img'] = torch.cat((refine_inp['img'],additional_features),dim=1)
-				print(refine_inp['img'].shape)
-				assert False
 
 			delta, h, c = self.refine_net(refine_inp, h, c)
 			assert not torch.isnan(lmbda).any().item(), 'Lmbda at t={} has nan: {}'.format(it,lmbda)
