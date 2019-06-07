@@ -80,11 +80,11 @@ def train(model,dataloader,n_epochs=10,device='cpu'):
 		print('On epoch {}'.format(epoch))
 		for i,mbatch in enumerate(dataloader):
 	
-			mbatch = mbatch.to(device)		
-			N,C,H,W = mbatch.shape
+			x = mbatch.to(device)		
+			N,C,H,W = x.shape
 
 			## Forward pass
-			loss, nll, div, mu_x, masks = v.forward(mbatch)	
+			loss, nll, div, mu_x, masks = v.forward(x)	
 			
 			## Process Outputs
 			if parallel:
