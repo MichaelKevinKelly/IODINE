@@ -99,12 +99,12 @@ def train(model,dataloader,n_epochs=10,device='cpu'):
 			optimizer.zero_grad()
 			loss.backward(retain_graph=False)
 			torch.nn.utils.clip_grad_norm_(v.parameters(), 5.0, norm_type=2)
-			v_module.check_grad()
+			v_module.grad_has_nan()
 
 			## Update model
-			assert not v_module.hasnan(), 'Model has nan pre-opt step'
+			assert not v_module.has_nan(), 'Model has nan pre-opt step'
 			optimizer.step()
-			assert not v_module.hasnan(), 'Model has nan post-opt step'
+			assert not v_module.has_nan(), 'Model has nan post-opt step'
 
 			## Print and log outputs
 			if i%10==0:
