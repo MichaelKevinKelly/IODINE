@@ -12,4 +12,4 @@ ipdb 0.12
 
 To run, adjust parameters in scripts/iodine_trainer.py as desired and then run "scripts/iodine_trainer.py" from the repo's root directory. 
 
-In particular, the datapath will need to be updated. In its current instantation, the dataset class expects that the data directory will include a "train" subdirectory containing consecutively numbered training images "CLEVR_train_*.png".
+In particular, savepath and datapath will need to be updated. In its current instantation, the dataset class expects that the data directory specified by datapath will include a "train" subdirectory containing consecutively numbered training images named "CLEVR_train_*.png".
